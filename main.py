@@ -4,9 +4,7 @@ import smtplib  # for a connection between our gmail & python script
 from email.message import EmailMessage  # sending emails
 import os  # intracting with the system
 from dotenv import load_dotenv
-# from dotenv import load_dotenv
 load_dotenv()
-# load_dotenv()
 password = os.getenv("PASSWORD")
 emaill = os.getenv("EMAIL")
 
@@ -23,7 +21,7 @@ def sendEmail(to, sub, msg):
 
         smtp.ehlo()
         smtp.starttls()
-        smtp.login("aayanagarwal05@gmail.com", "tiger@100")
+        smtp.login(emaill, password)
         smtp.ehlo()
         smtp.send_message(email)
         print("Email Send")
